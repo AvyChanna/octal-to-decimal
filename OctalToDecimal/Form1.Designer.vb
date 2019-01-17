@@ -59,27 +59,41 @@ Partial Class Form1
     Friend WithEvents OkButton As System.Windows.Forms.Button
 
     Private Sub OkButton_Click(sender As Object, e As EventArgs) Handles OkButton.Click
-        Dim s As String = InputOctal.Text
-        Dim notFirst, hasDot, hasSign As Boolean
-        notFirst = False
-        hasDot = False
-        hasSign = False
-        For Each c As Char In s
-            If Asc(c) >= Asc("0") AndAlso Asc(c) <= Asc("7") Then
-                Continue For
-            ElseIf Asc(c) = Asc("-") AndAlso notFirst = False AndAlso hasSign = False Then
-                hasSign = True
-                Continue For
-            ElseIf Asc(c) = Asc("+") AndAlso notFirst = False AndAlso hasSign = False Then
-                hasSign = True
-                Continue For
-            ElseIf Asc(c) >= Asc(".") AndAlso hasDot = False Then
-                hasDot = True
-                Continue For
-            End If
-            notFirst = True
 
+        'Obtain input from user in textbox.
+        Dim s As String = InputOctal.Text
+
+        'Validate input 
+        If (validateInput(s) = False) Then
+            'user entered input in wrong format
+            InputOctal.Text = s + "6"
+            Return
+        End If
+
+        'Valid input entered by user .Now find res
+        'Split string into 2 parts .one containing digits before decimal and other containing digits after decimal
+
+        Dim befDec, aftDec As String
+        befDec = ""
+        aftDec = ""
+
+        Dim foundDot As Boolean = False
+        For Each c As Char In s
+            If c = "." Then
+                foundDot = True
+            ElseIf foundDot Then
+                aftDec += c
+            Else
+                befDec += c
+            End If
         Next
 
+        System.Console.WriteLine(aftDec)
+        System.Console.WriteLine(befDec)
+
+        'Do visualisation as you find answer
+        'visualisation method unknows till now
+
     End Sub
+End Class
 
