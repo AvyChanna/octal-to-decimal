@@ -70,7 +70,7 @@ Partial Class Form1
             Return
         End If
 
-        'Valid input entered by user .Now find res
+        'Valid input entered by user .Now find resBefDec
         'Split string into 2 parts .one containing digits before decimal and other containing digits after decimal
 
         Dim befDec, aftDec As String
@@ -87,13 +87,35 @@ Partial Class Form1
                 befDec += c
             End If
         Next
-
-        System.Console.WriteLine(aftDec)
-        System.Console.WriteLine(befDec)
-
         'Do visualisation as you find answer
         'visualisation method unknows till now
 
+        Dim resBefDec, multiplicant, remainder, resAftDec As System.Numerics.BigInteger
+        multiplicant = 1
+        resBefDec = 0
+        resAftDec = 0
+        remainder = 0
+
+        For Each c As Char In befDec.Reverse
+            resBefDec += multiplicant * (Asc(c) - Asc("0"))
+            multiplicant *= 8
+        Next
+
+
+        multiplicant = 1
+        For ctr As Integer = 1 To aftDec.Length
+            multiplicant *= 125
+        Next
+
+        'For Each c As Char In aftDec.Reverse
+        'resAftDec += multiplicant * (Asc(c) - Asc("0"))
+        'multiplicant /= 125
+        'While multiplicant.ToString.Length >= resAftDec
+        'Next
+
+        resAftDec += remainder.ToString
+
+        System.Console.WriteLine(resBefDec.ToString + "." + resAftDec)
     End Sub
 End Class
 

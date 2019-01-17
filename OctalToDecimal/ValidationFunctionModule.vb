@@ -4,9 +4,8 @@
         notFirst = False
         hasDot = False
         hasSign = False
-        System.Console.WriteLine(str)
         For Each c As Char In str
-            System.Console.WriteLine(c)
+
             If Asc(c) >= Asc("0") AndAlso Asc(c) <= Asc("7") Then
             ElseIf Asc(c) = Asc("-") AndAlso notFirst = False AndAlso hasSign = False Then
                 hasSign = True
