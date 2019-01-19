@@ -2,7 +2,7 @@
     Function ValidateInput(ByVal str As String) As Boolean
         'Check string is not empty
         If str = "" Then
-            MessageBox.Show("Please insert a number before clicking OK !", "No Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Please insert a number first !", "No Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return False
         End If
         Dim NotFirst, HasDot, HasSign As Boolean
