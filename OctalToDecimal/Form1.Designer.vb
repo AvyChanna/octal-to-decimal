@@ -180,38 +180,42 @@ Partial Class Form1
 			multiplicant /= 125
 		Next
 
-		OutputDecimal.Text = resBefDec.ToString + "." + resAftDec.ToString
+        OutputDecimal.Text = resBefDec.ToString
 
-		'If resAftDec > 0 Then
-		'	OutputDecimal.Text = OutputDecimal.Text + "." + resAftDec.ToString
-		'End If
+        If resAftDec > 0 Then
+            OutputDecimal.Text = OutputDecimal.Text + "." + resAftDec.ToString
+        End If
 
-		' Usage: Explanation.Rtf = RtfStart + RedStart + "Red Text" + ColourEnd + RtfEnd
-		Dim RtfStart As String = "{\rtf1\ansi\deff0{\fonttbl{\f0 @Arial Unicode MS;}}{\colortbl ;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;\f0\fs22}" ' \f0\fs22
-		Dim RtfEnd As String = "}"
-		' Colours text
-		Dim RedStart As String = "\cf1 "
-		Dim GreenStart As String = "\cf2 "
-		Dim BlueStart As String = "\cf3 "
-		Dim RedEnd As String = "\cf0 "
-		Dim GreenEnd As String = "\cf0 "
-		Dim BlueEnd As String = "\cf0 "
-		Dim ColourEnd As String = "\cf0 "
-		' Writes 8 power n
-		Dim SuperStart As String = "\super "
-		Dim SuperEnd As String = "\nosuperSub "
-		' Writes StrikedThrough Text
-		Dim StrikeStart As String = "\strike "
-		Dim StrikeEnd As String = "\strike0 "
-		' Writes Special Chars
-		Dim Tab As String = "\tab "
-		Dim Endl As String = "\line "
+        ' Usage: Explanation.Rtf = RtfStart + RedStart + "Red Text" + ColourEnd + RtfEnd
+        Dim RtfStart As String = "{\rtf1\ansi\deff0{\fonttbl{\f0 @Arial Unicode MS;}}{\colortbl ;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;\f0\fs22}" ' \f0\fs22
+        Dim RtfEnd As String = "}"
+        ' Colours text
+        Dim RedStart As String = "\cf1 "
+        Dim GreenStart As String = "\cf2 "
+        Dim BlueStart As String = "\cf3 "
+        Dim RedEnd As String = "\cf0 "
+        Dim GreenEnd As String = "\cf0 "
+        Dim BlueEnd As String = "\cf0 "
+        Dim ColourEnd As String = "\cf0 "
+        ' Writes 8 power n
+        Dim SuperStart As String = "\super "
+        Dim SuperEnd As String = "\nosuperSub "
+        ' Writes StrikedThrough Text
+        Dim StrikeStart As String = "\strike "
+        Dim StrikeEnd As String = "\strike0 "
+        ' Writes Special Chars
+        Dim Tab As String = "\tab "
+        Dim Endl As String = "\line "
 
-		Explanation.Rtf = RtfStart + RedStart + "Red" + Tab + "Text" + SuperStart + GreenStart + StrikeStart + "Striked Green Superscript" + StrikeEnd + GreenEnd + SuperEnd + ColourEnd + Endl + "Next Line" + RtfEnd
-		'Do visualisation as you find answer
-		'visualisation method unknows till now
+        Dim proc As String = RtfStart + RedStart + "Red" + Tab + "Text" + SuperStart + GreenStart + StrikeStart + "Striked Green Superscript" + StrikeEnd + GreenEnd + SuperEnd + ColourEnd + Endl + "Next Line"
+        Explanation.Rtf = proc
+        Console.Write(Explanation.Rtf)
+        Console.Write(proc)
 
-	End Sub
+        'Do visualisation as you find answer
+        'visualisation method unknows till now
+
+    End Sub
 
 	Private Sub InputOctal_KeyDown(sender As Object, e As KeyEventArgs) Handles InputOctal.KeyDown
 		If e.KeyCode = Keys.Enter Then
