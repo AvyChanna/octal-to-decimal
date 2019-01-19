@@ -1,13 +1,15 @@
 ﻿Module ValidationFunctionModule
-    Function ValidateInput(ByVal str As String) As Boolean
-        'Check string is not empty
-        If str = "" Then
-            MessageBox.Show("Please insert a number first !", "No Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return False
-        End If
+	' Validates that given Input can be correctly processed
+	Function ValidateInput(ByVal str As String) As Boolean
+		'Check string is not empty
+		If str = "" Then
+			MessageBox.Show("Please insert a number first !", "No Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+			Return False
+		End If
+
 		Dim NotFirst, HasDot, HasSign, DigitAfterDot As Boolean
 		NotFirst = False
-        HasDot = False
+		HasDot = False
 		HasSign = False
 		DigitAfterDot = False
 		For Each c As Char In str
@@ -35,5 +37,5 @@
 		'Input correct as all cases done and accounted for
 		'Input still unable to process , in inputs 
 		Return True
-    End Function
+	End Function
 End Module

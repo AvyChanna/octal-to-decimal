@@ -114,17 +114,19 @@ Partial Class Form1
 
 	Private Sub OkButton_Click(sender As Object, e As EventArgs) Handles OkButton.Click
 
-		'Obtain input from user in textbox.
+		' Obtain input from user in textbox.
 		Dim s As String = InputOctal.Text
 
-		'Validate input
+		' Validate input
 		If (ValidateInput(s) = False) Then
-			'user entered input in wrong format
+			' User entered input in wrong format
+			OutputDecimal.Text = ""
+			Explanation.Rtf = ""
 			Return
 		End If
 
-		'Valid input entered by user .Now find res
-		'Split string into 2 parts .one containing digits before decimal and other containing digits after decimal
+		' Valid input entered by user .Now find res
+		' Split string into 2 parts .one containing digits before decimal and other containing digits after decimal
 
 		InputOctal.Select()
 		Dim Integral, Fractional, Result As String
@@ -132,45 +134,12 @@ Partial Class Form1
 		Fractional = ""
 		Result = convertDec(InputOctal.Text)
 		OutputDecimal.Text = Result
-		Explanation.Rtf = writeExplanation(InputOctal.Text, Result)
-
-		'If resAftDec > 0 Then
-		'	OutputDecimal.Text = OutputDecimal.Text + "." + resAftDec.ToString
-		'End If
-
-		'Dim Endl As String = "\line "
-		'Dim Tab As String = "\tab "
-		'' Writes Special Chars
-		'Dim StrikeEnd As String = "\strike0 "
-		'Dim StrikeStart As String = "\strike "
-		'' Writes StrikedThrough Text
-		'' Usage: Explanation.Rtf = RtfStart + RedStart + "Red Text" + ColourEnd + RtfEnd
-		'Dim RtfStart As String = "{\rtf1\ansi\deff0{\fonttbl{\f0 @Arial Unicode MS;}}{\colortbl ;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;\f0\fs22}" ' \f0\fs22
-		'Dim RtfEnd As String = "}"
-		'' Colours text
-		'Dim RedStart As String = "\cf1 "
-		'Dim GreenStart As String = "\cf2 "
-		'Dim BlueStart As String = "\cf3 "
-		'Dim RedEnd As String = "\cf0 "
-		'Dim GreenEnd As String = "\cf0 "
-		'Dim BlueEnd As String = "\cf0 "
-		'Dim ColourEnd As String = "\cf0 "
-		'' Writes 8 power n
-		'Dim SuperStart As String = "\super "
-		'Dim SuperEnd As String = "\nosuperSub "
-
-
-		'Dim proc As String = RtfStart + RedStart + "Red" + Tab + "Text" + SuperStart + GreenStart + StrikeStart + "Striked Green Superscript" + StrikeEnd + GreenEnd + SuperEnd + ColourEnd + Endl + "Next Line"
-		'Explanation.Rtf = proc
-		'Console.Write(Explanation.Rtf)
-		'Console.Write(proc)
-
-		'Do visualisation as you find answer
-		'visualisation method unknows till now
+		Explanation.Rtf = ReturnExplanation(InputOctal.Text, Result)
 
 	End Sub
 
 	Private Sub InputOctal_KeyDown(sender As Object, e As KeyEventArgs) Handles InputOctal.KeyDown
+		' Handles Enter Keypress on Octal Number Textbox
 		If e.KeyCode = Keys.Enter Then
 			OkButton.FlatStyle = FlatStyle.Flat
 			Call OkButton.PerformClick()

@@ -1,84 +1,84 @@
-﻿Module convertor
-
-	Function convertDec(ByVal str As String) As String
+﻿Module Convertor
+	' Converts a given octal number to decimal
+	Function ConvertDec(ByVal Str As String) As String
 
 		'split into 2 halves before decimal and after decimal
-		Dim befDec, aftDec As String
-		befDec = ""
-		aftDec = ""
+		Dim BefDec, AftDec As String
+		BefDec = ""
+		AftDec = ""
 
-		Dim foundDot As Boolean = False
-		For Each c As Char In str
-			If c = "." Then
-				foundDot = True
-			ElseIf c = "+" Or c = "-" Then
+		Dim FoundDot As Boolean = False
+		For Each C As Char In Str
+			If C = "." Then
+				FoundDot = True
+			ElseIf C = "+" Or C = "-" Then
 				Continue For
-			ElseIf foundDot Then
-				aftDec += c
+			ElseIf FoundDot Then
+				AftDec += C
 			Else
-				befDec += c
+				BefDec += C
 			End If
 		Next
-		If aftDec = "" Then
-			aftDec = "0"
+		If AftDec = "" Then
+			AftDec = "0"
 		End If
-		If befDec = "" Then
-			befDec = "0"
+		If BefDec = "" Then
+			BefDec = "0"
 		End If
 		'*********************************initialisations*********************************************
 
-		Dim resBefDec, multiplicant, remainder As System.Numerics.BigInteger
-		Dim resAftDec As String = "0"
-		Dim carry As Integer = 0
-		Dim count As Integer = 0
+		Dim ResBefDec, Multiplicant, Remainder As System.Numerics.BigInteger
+		Dim ResAftDec As String = "0"
+		Dim Carry As Integer = 0
+		Dim Count As Integer = 0
 
-		multiplicant = 1
-		resBefDec = 0
-		resAftDec = "0"
-		remainder = 0
+		Multiplicant = 1
+		ResBefDec = 0
+		ResAftDec = "0"
+		Remainder = 0
 
 		'*****************************conversion before decimal*****************************************
 
-		For Each c As Char In befDec.Reverse
-			resBefDec += multiplicant * (Asc(c) - Asc("0"))
-			multiplicant *= 8
+		For Each C As Char In BefDec.Reverse
+			ResBefDec += Multiplicant * (Asc(C) - Asc("0"))
+			Multiplicant *= 8
 		Next
 
 		'******************************conversion after decimal*****************************************
 
-		For Each c As Char In (aftDec.Remove(0, 1)).Reverse
-			resAftDec = supportFunc(resAftDec, count, c)
+		For Each C As Char In (AftDec.Remove(0, 1)).Reverse
+			ResAftDec = SupportFunc(ResAftDec, Count, C)
 		Next
 
-		If aftDec(0) = "0" Then
-			resAftDec = supportFunc(resAftDec, count, "8").Remove(0, 1)
+		If AftDec(0) = "0" Then
+			ResAftDec = SupportFunc(ResAftDec, Count, "8").Remove(0, 1)
 		Else
-			resAftDec = supportFunc(resAftDec, count, aftDec(0))
+			ResAftDec = SupportFunc(ResAftDec, Count, AftDec(0))
 		End If
 
 		'***********************************pretty return string*****************************************
-		Dim result As String = ""
-		If str.StartsWith("-") Then
-			result = "-"
+		Dim Result As String = ""
+		If Str.StartsWith("-") Then
+			Result = "-"
 		End If
-		result = result + resBefDec.ToString
-		If System.Numerics.BigInteger.Parse(resAftDec) > 0 Then
-			result = result + "." + resAftDec.TrimEnd(New Char() {"0"c})
+		Result = Result + ResBefDec.ToString
+		If System.Numerics.BigInteger.Parse(ResAftDec) > 0 Then
+			Result = Result + "." + ResAftDec.TrimEnd(New Char() {"0"c})
 		End If
-		Return result
+		Return Result
 	End Function
 
-	Function supportFunc(ByVal resAftDec As String, ByRef count As Integer, ByVal c As Char) As String
-        Dim temp As System.Numerics.BigInteger = System.Numerics.BigInteger.Parse(c)
-        Dim curr As System.Numerics.BigInteger = System.Numerics.BigInteger.Parse(resAftDec)
+	Function SupportFunc(ByVal ResAftDec As String, ByRef Count As Integer, ByVal C As Char) As String
+		Dim Temp As System.Numerics.BigInteger = System.Numerics.BigInteger.Parse(C)
+		Dim Curr As System.Numerics.BigInteger = System.Numerics.BigInteger.Parse(ResAftDec)
 
-        For i As Integer = 0 To count - 1
-            temp *= 1000
-        Next
+		For I As Integer = 0 To Count - 1
+			Temp *= 1000
+		Next
 
-        curr += temp
-        count += 1
-        Return (curr * 125).ToString
-    End Function
+		Curr += Temp
+		Count += 1
+		Return (Curr * 125).ToString
+	End Function
 
 End Module

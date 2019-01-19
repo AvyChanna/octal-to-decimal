@@ -1,9 +1,29 @@
 ﻿Module Grahics
-	Function writeExplanation(ByVal str As String, ByVal Result As String) As String
+	' Generates RTF formatted text
+	Function ReturnExplanation(ByVal str As String, ByVal Result As String) As String
+		' Returns RTF text to be added to rtfbox, all formatted nicely
+
+
+		' *RTF CHEATSHEET*
+		' \tab = tabspace
+		' \cf0 = normal black colour
+		' \cf1 = purple
+		' \cf2 = brown
+		' \cf3 = lightgreen
+		' \cf4 = green
+		' \cf5 = blue
+		' \cf6 = red
+		' \cf7 = yellow
+		' \par = para ending
+		' \super = superscript
+		' \nosupersub = normal text
+
+
+
 		Dim Integral, Fractional As String
 		Integral = ""
 		Fractional = ""
-
+		' Find integral and fractional part of """"given input"""" (absolutely no trimming/slicing)
 		Dim FoundDot As Boolean = False
 		For Each c As Char In str
 
@@ -23,10 +43,11 @@
 		If Integral = "" Then
 			Integral = "0"
 		End If
+		' Start RTF string. Subsequently, strings will append to it one-by-one 
+		Dim RtfTemp As String = "{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Courier New;}}{\colortbl ;\red155\green0\blue211;\red128\green64\blue0;\red155\green187\blue89;\red0\green176\blue80;\red0\green77\blue187;\red255\green0\blue0;\red255\green192\blue0;}\viewkind4\uc1\pard\sl240\slmult1\cf1\f0\fs20\lang9\tab "
 		Dim IntegralCounter As Integer = Len(Integral)
 
 
-		Dim RtfTemp As String = "{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Courier New;}}{\colortbl ;\red155\green0\blue211;\red128\green64\blue0;\red155\green187\blue89;\red0\green176\blue80;\red0\green77\blue187;\red255\green0\blue0;\red255\green192\blue0;}\viewkind4\uc1\pard\sl240\slmult1\cf1\f0\fs20\lang9\tab "
 		' Line 1(number)
 		For Each c As Char In Integral
 			RtfTemp = RtfTemp + c + "\tab "
@@ -69,6 +90,7 @@
 			RtfTemp = RtfTemp + "\cf5 -1\cf0 ["
 		End If
 		IntegralCounter = Len(Integral)
+		' Add blue + between two multiplications
 		Dim FirstOut As Boolean = False
 		For Each c As Char In Integral
 			If FirstOut = True Then
@@ -97,6 +119,7 @@
 		End If
 		RtfTemp = RtfTemp + "\par"
 		' Line 5(smart-add)
+		' This line gets printed only if there is atleast one multiplication 
 		Dim AtleastOneMult As Boolean = False
 		Dim AtleastOneMultInIntegral As Boolean = False
 		For Each c As Char In Integral
@@ -118,6 +141,7 @@
 				End If
 			Next
 		End If
+		' Result.StartsWith("-") adds support for negative numbers
 		If AtleastOneMult = True Then
 			RtfTemp = RtfTemp + "\cf7  = "
 			If Result.StartsWith("-") Then
@@ -159,30 +183,11 @@
 		If AtleastOneMult = True Then
 			RtfTemp = RtfTemp + "\par"
 		End If
-		' Line 6(result)
+		' Line 6 and/or 7(result)
 		If Result.StartsWith("-") Then
 			RtfTemp = RtfTemp + "\cf7  = \cf5 -1\cf0 [\cf4 " + Result.TrimStart(New Char() {"-"c}) + "\cf0 ]\par"
 		End If
 		RtfTemp = RtfTemp + "\cf7  = \cf5 " + Result + "\par }"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		Return RtfTemp
 	End Function
