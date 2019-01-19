@@ -119,75 +119,18 @@ Partial Class Form1
 			Return
 		End If
 
-		'Valid input entered by user .Now find res
-		'Split string into 2 parts .one containing digits before decimal and other containing digits after decimal
+        'Valid input entered by user .Now find res
+        'Split string into 2 parts .one containing digits before decimal and other containing digits after decimal
 
-		Dim befDec, aftDec As String
-		befDec = ""
-		aftDec = ""
+        InputOctal.Select()
+        OutputDecimal.Text = convertDec(InputOctal.Text)
 
-		Dim foundDot As Boolean = False
-		For Each c As Char In s
-			If c = "." Then
-				foundDot = True
-			ElseIf foundDot Then
-				aftDec += c
-			Else
-				befDec += c
-			End If
-		Next
+        'If resAftDec > 0 Then
+        '	OutputDecimal.Text = OutputDecimal.Text + "." + resAftDec.ToString
+        'End If
 
-
-		InputOctal.Select()
-
-		Dim resBefDec, multiplicant, remainder, resAftDec, temp As System.Numerics.BigInteger
-		multiplicant = 1
-		resBefDec = 0
-		resAftDec = 0
-		remainder = 0
-
-		For Each c As Char In befDec.Reverse
-			resBefDec += multiplicant * (Asc(c) - Asc("0"))
-			multiplicant *= 8
-		Next
-
-
-		multiplicant = 1
-		For ctr As Integer = 1 To aftDec.Length
-			multiplicant *= 125
-		Next
-
-		Dim carry As Integer = 0
-
-		For Each c As Char In aftDec.Reverse
-			temp = multiplicant * (Asc(c) - Asc("0"))
-			Dim lenInit As Integer = temp.ToString.Length
-
-			If multiplicant.ToString.Length < lenInit Then
-				carry -= 1
-			End If
-
-			While temp.ToString.Length <= (resAftDec.ToString.Length - carry)
-				temp *= 10
-			End While
-
-			resAftDec += temp
-			If resAftDec.ToString.Length > temp.ToString.Length Or multiplicant.ToString.Length < lenInit Then
-				carry = 1
-			Else
-				carry = 0
-			End If
-			multiplicant /= 125
-		Next
-
-		OutputDecimal.Text = resBefDec.ToString + "." + resAftDec.ToString
-
-		'If resAftDec > 0 Then
-		'	OutputDecimal.Text = OutputDecimal.Text + "." + resAftDec.ToString
-		'End If
-
-		' Usage: Explanation.Rtf = RtfStart + RedStart + "Red Text" + ColourEnd + RtfEnd
-		Dim RtfStart As String = "{\rtf1\ansi\deff0{\fonttbl{\f0 @Arial Unicode MS;}}{\colortbl ;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;\f0\fs22}" ' \f0\fs22
+        ' Usage: Explanation.Rtf = RtfStart + RedStart + "Red Text" + ColourEnd + RtfEnd
+        Dim RtfStart As String = "{\rtf1\ansi\deff0{\fonttbl{\f0 @Arial Unicode MS;}}{\colortbl ;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;\f0\fs22}" ' \f0\fs22
 		Dim RtfEnd As String = "}"
 		' Colours text
 		Dim RedStart As String = "\cf1 "
