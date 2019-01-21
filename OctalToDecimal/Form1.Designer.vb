@@ -22,12 +22,15 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
 		Me.InputOctal = New System.Windows.Forms.TextBox()
 		Me.OkButton = New System.Windows.Forms.Button()
 		Me.Label3 = New System.Windows.Forms.Label()
 		Me.Label2 = New System.Windows.Forms.Label()
 		Me.Explanation = New System.Windows.Forms.RichTextBox()
 		Me.OutputDecimal = New System.Windows.Forms.RichTextBox()
+		Me.ExitButton = New System.Windows.Forms.Button()
+		Me.ResetButton = New System.Windows.Forms.Button()
 		Me.SuspendLayout()
 		'
 		'InputOctal
@@ -37,9 +40,9 @@ Partial Class Form1
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
 		Me.InputOctal.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.InputOctal.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.InputOctal.Location = New System.Drawing.Point(176, 12)
+		Me.InputOctal.Location = New System.Drawing.Point(178, 12)
 		Me.InputOctal.Name = "InputOctal"
-		Me.InputOctal.Size = New System.Drawing.Size(293, 28)
+		Me.InputOctal.Size = New System.Drawing.Size(393, 28)
 		Me.InputOctal.TabIndex = 0
 		Me.InputOctal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
@@ -47,13 +50,14 @@ Partial Class Form1
 		'
 		Me.OkButton.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
 			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.OkButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption
 		Me.OkButton.Cursor = System.Windows.Forms.Cursors.Hand
 		Me.OkButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
-		Me.OkButton.FlatStyle = System.Windows.Forms.FlatStyle.System
+		Me.OkButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.OkButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.OkButton.Location = New System.Drawing.Point(176, 285)
+		Me.OkButton.Location = New System.Drawing.Point(167, 309)
 		Me.OkButton.Name = "OkButton"
-		Me.OkButton.Size = New System.Drawing.Size(133, 39)
+		Me.OkButton.Size = New System.Drawing.Size(250, 40)
 		Me.OkButton.TabIndex = 1
 		Me.OkButton.Text = "Convert"
 		Me.OkButton.UseVisualStyleBackColor = False
@@ -61,20 +65,20 @@ Partial Class Form1
 		'Label3
 		'
 		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label3.Location = New System.Drawing.Point(9, 46)
+		Me.Label3.Location = New System.Drawing.Point(7, 48)
 		Me.Label3.Margin = New System.Windows.Forms.Padding(3)
 		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(132, 28)
+		Me.Label3.Size = New System.Drawing.Size(150, 28)
 		Me.Label3.TabIndex = 2
 		Me.Label3.Text = "Decimal"
 		'
 		'Label2
 		'
 		Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label2.Location = New System.Drawing.Point(9, 12)
+		Me.Label2.Location = New System.Drawing.Point(7, 12)
 		Me.Label2.Margin = New System.Windows.Forms.Padding(3)
 		Me.Label2.Name = "Label2"
-		Me.Label2.Size = New System.Drawing.Size(132, 28)
+		Me.Label2.Size = New System.Drawing.Size(150, 28)
 		Me.Label2.TabIndex = 2
 		Me.Label2.Text = "Octal"
 		'
@@ -86,10 +90,10 @@ Partial Class Form1
 		Me.Explanation.BackColor = System.Drawing.SystemColors.ActiveBorder
 		Me.Explanation.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.Explanation.Cursor = System.Windows.Forms.Cursors.IBeam
-		Me.Explanation.Location = New System.Drawing.Point(15, 82)
+		Me.Explanation.Location = New System.Drawing.Point(13, 82)
 		Me.Explanation.Name = "Explanation"
 		Me.Explanation.ReadOnly = True
-		Me.Explanation.Size = New System.Drawing.Size(454, 197)
+		Me.Explanation.Size = New System.Drawing.Size(558, 221)
 		Me.Explanation.TabIndex = 3
 		Me.Explanation.TabStop = False
 		Me.Explanation.Text = ""
@@ -103,31 +107,64 @@ Partial Class Form1
 		Me.OutputDecimal.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.OutputDecimal.Cursor = System.Windows.Forms.Cursors.IBeam
 		Me.OutputDecimal.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.OutputDecimal.Location = New System.Drawing.Point(176, 46)
+		Me.OutputDecimal.Location = New System.Drawing.Point(178, 48)
 		Me.OutputDecimal.MaxLength = 32767
 		Me.OutputDecimal.Multiline = False
 		Me.OutputDecimal.Name = "OutputDecimal"
 		Me.OutputDecimal.ReadOnly = True
 		Me.OutputDecimal.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-		Me.OutputDecimal.Size = New System.Drawing.Size(293, 28)
+		Me.OutputDecimal.Size = New System.Drawing.Size(393, 28)
 		Me.OutputDecimal.TabIndex = 4
 		Me.OutputDecimal.TabStop = False
 		Me.OutputDecimal.Text = ""
 		Me.OutputDecimal.WordWrap = False
+		'
+		'ExitButton
+		'
+		Me.ExitButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.ExitButton.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+		Me.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand
+		Me.ExitButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
+		Me.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.ExitButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.ExitButton.Location = New System.Drawing.Point(421, 309)
+		Me.ExitButton.Name = "ExitButton"
+		Me.ExitButton.Size = New System.Drawing.Size(150, 40)
+		Me.ExitButton.TabIndex = 1
+		Me.ExitButton.Text = "Exit"
+		Me.ExitButton.UseVisualStyleBackColor = False
+		'
+		'ResetButton
+		'
+		Me.ResetButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+		Me.ResetButton.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+		Me.ResetButton.Cursor = System.Windows.Forms.Cursors.Hand
+		Me.ResetButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
+		Me.ResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.ResetButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.ResetButton.Location = New System.Drawing.Point(13, 309)
+		Me.ResetButton.Name = "ResetButton"
+		Me.ResetButton.Size = New System.Drawing.Size(150, 40)
+		Me.ResetButton.TabIndex = 1
+		Me.ResetButton.Text = "Reset"
+		Me.ResetButton.UseVisualStyleBackColor = False
 		'
 		'Form1
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-		Me.ClientSize = New System.Drawing.Size(484, 336)
+		Me.ClientSize = New System.Drawing.Size(584, 361)
 		Me.Controls.Add(Me.OutputDecimal)
 		Me.Controls.Add(Me.Explanation)
 		Me.Controls.Add(Me.Label3)
 		Me.Controls.Add(Me.Label2)
+		Me.Controls.Add(Me.ResetButton)
+		Me.Controls.Add(Me.ExitButton)
 		Me.Controls.Add(Me.OkButton)
 		Me.Controls.Add(Me.InputOctal)
-		Me.MinimumSize = New System.Drawing.Size(500, 375)
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+		Me.MinimumSize = New System.Drawing.Size(600, 400)
 		Me.Name = "Form1"
 		Me.Text = "Octal To Decimal Converter"
 		Me.ResumeLayout(False)
@@ -179,5 +216,18 @@ Partial Class Form1
 	Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Me.Location = New Point((Screen.PrimaryScreen.Bounds.Width - Me.Width) \ 2, (Screen.PrimaryScreen.Bounds.Height - Me.Height) \ 2)
 		OutputDecimal.SelectionAlignment = HorizontalAlignment.Center
+	End Sub
+
+	Friend WithEvents ExitButton As Button
+	Friend WithEvents ResetButton As Button
+
+	Private Sub ResetButton_Click(sender As Object, e As EventArgs) Handles ResetButton.Click
+		InputOctal.Text = ""
+		OutputDecimal.Text = ""
+		Explanation.Text = ""
+	End Sub
+
+	Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+		Application.Exit()
 	End Sub
 End Class

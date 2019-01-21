@@ -156,7 +156,7 @@
 				Exit For
 			End If
 		Next
-		Console.WriteLine(AtleastOneZero)
+		'Console.WriteLine(AtleastOneZero)
 		' Result.StartsWith("-") adds support for negative numbers
 		If AtleastOneMult = True AndAlso AtleastOneZero = True Then
 			RtfTemp = RtfTemp + "\cf7  = "
