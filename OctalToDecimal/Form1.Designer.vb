@@ -37,6 +37,7 @@ Partial Class Form1
 		Me.FileOutputDialog = New System.Windows.Forms.SaveFileDialog()
 		Me.Authors = New System.Windows.Forms.Label()
 		Me.AuthorHead = New System.Windows.Forms.Label()
+		Me.ShowVisuals = New System.Windows.Forms.CheckBox()
 		Me.SuspendLayout()
 		'
 		'InputOctal
@@ -61,10 +62,10 @@ Partial Class Form1
 		Me.OkButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
 		Me.OkButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.OkButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.OkButton.Location = New System.Drawing.Point(175, 320)
+		Me.OkButton.Location = New System.Drawing.Point(175, 370)
 		Me.OkButton.Name = "OkButton"
 		Me.OkButton.Size = New System.Drawing.Size(284, 40)
-		Me.OkButton.TabIndex = 5
+		Me.OkButton.TabIndex = 6
 		Me.OkButton.Text = "Convert"
 		Me.OkButton.UseVisualStyleBackColor = False
 		'
@@ -98,10 +99,10 @@ Partial Class Form1
 		Me.Explanation.BackColor = System.Drawing.SystemColors.ActiveBorder
 		Me.Explanation.BorderStyle = System.Windows.Forms.BorderStyle.None
 		Me.Explanation.Cursor = System.Windows.Forms.Cursors.IBeam
-		Me.Explanation.Location = New System.Drawing.Point(13, 82)
+		Me.Explanation.Location = New System.Drawing.Point(13, 116)
 		Me.Explanation.Name = "Explanation"
 		Me.Explanation.ReadOnly = True
-		Me.Explanation.Size = New System.Drawing.Size(609, 232)
+		Me.Explanation.Size = New System.Drawing.Size(609, 248)
 		Me.Explanation.TabIndex = 11
 		Me.Explanation.TabStop = False
 		Me.Explanation.Text = ""
@@ -136,10 +137,10 @@ Partial Class Form1
 		Me.ExitButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
 		Me.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.ExitButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.ExitButton.Location = New System.Drawing.Point(472, 320)
+		Me.ExitButton.Location = New System.Drawing.Point(472, 370)
 		Me.ExitButton.Name = "ExitButton"
 		Me.ExitButton.Size = New System.Drawing.Size(150, 40)
-		Me.ExitButton.TabIndex = 6
+		Me.ExitButton.TabIndex = 7
 		Me.ExitButton.Text = "Exit"
 		Me.ExitButton.UseVisualStyleBackColor = False
 		'
@@ -151,10 +152,10 @@ Partial Class Form1
 		Me.ResetButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
 		Me.ResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.ResetButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.ResetButton.Location = New System.Drawing.Point(13, 320)
+		Me.ResetButton.Location = New System.Drawing.Point(13, 370)
 		Me.ResetButton.Name = "ResetButton"
 		Me.ResetButton.Size = New System.Drawing.Size(150, 40)
-		Me.ResetButton.TabIndex = 4
+		Me.ResetButton.TabIndex = 5
 		Me.ResetButton.Text = "Reset"
 		Me.ResetButton.UseVisualStyleBackColor = False
 		'
@@ -213,7 +214,7 @@ Partial Class Form1
 		Me.Authors.AutoSize = True
 		Me.Authors.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Authors.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Authors.Location = New System.Drawing.Point(163, 375)
+		Me.Authors.Location = New System.Drawing.Point(163, 425)
 		Me.Authors.Name = "Authors"
 		Me.Authors.Size = New System.Drawing.Size(458, 24)
 		Me.Authors.TabIndex = 12
@@ -226,19 +227,36 @@ Partial Class Form1
 		Me.AuthorHead.AutoSize = True
 		Me.AuthorHead.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.AuthorHead.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.AuthorHead.Location = New System.Drawing.Point(18, 375)
+		Me.AuthorHead.Location = New System.Drawing.Point(18, 425)
 		Me.AuthorHead.Name = "AuthorHead"
 		Me.AuthorHead.Size = New System.Drawing.Size(143, 25)
 		Me.AuthorHead.TabIndex = 13
 		Me.AuthorHead.Text = "AUTHORS  -"
 		Me.AuthorHead.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
 		'
+		'ShowVisuals
+		'
+		Me.ShowVisuals.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.ShowVisuals.AutoSize = True
+		Me.ShowVisuals.Checked = True
+		Me.ShowVisuals.CheckState = System.Windows.Forms.CheckState.Checked
+		Me.ShowVisuals.Cursor = System.Windows.Forms.Cursors.Hand
+		Me.ShowVisuals.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+		Me.ShowVisuals.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.ShowVisuals.Location = New System.Drawing.Point(439, 82)
+		Me.ShowVisuals.Name = "ShowVisuals"
+		Me.ShowVisuals.Size = New System.Drawing.Size(183, 28)
+		Me.ShowVisuals.TabIndex = 4
+		Me.ShowVisuals.Text = "Show Visualization"
+		Me.ShowVisuals.UseVisualStyleBackColor = True
+		'
 		'Form1
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-		Me.ClientSize = New System.Drawing.Size(634, 411)
+		Me.ClientSize = New System.Drawing.Size(634, 461)
+		Me.Controls.Add(Me.ShowVisuals)
 		Me.Controls.Add(Me.AuthorHead)
 		Me.Controls.Add(Me.Authors)
 		Me.Controls.Add(Me.OutputDecimal)
@@ -287,7 +305,9 @@ Partial Class Form1
 		Fractional = ""
 		Result = ConvertDec(InputOctal.Text)
 		OutputDecimal.Text = Result
-		Explanation.Rtf = GenerateExplanation(InputOctal.Text, Result)
+		If ShowVisuals.Checked = True Then
+			Explanation.Rtf = GenerateExplanation(InputOctal.Text, Result)
+		End If
 		InputOctal.Select()
 
 	End Sub
@@ -373,5 +393,16 @@ Partial Class Form1
 
 	Friend WithEvents Authors As Label
 	Friend WithEvents AuthorHead As Label
+	Friend WithEvents ShowVisuals As CheckBox
 
+	Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVisuals.CheckedChanged
+		If OutputDecimal.Text = "" Then
+			Return
+		End If
+		If Explanation.Text = "" Then
+			Explanation.Rtf = GenerateExplanation(InputOctal.Text, OutputDecimal.Text)
+		Else
+			Explanation.Text = ""
+		End If
+	End Sub
 End Class
