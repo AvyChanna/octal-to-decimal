@@ -49,7 +49,7 @@ Partial Class Form1
 		Me.InputOctal.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.InputOctal.Location = New System.Drawing.Point(178, 12)
 		Me.InputOctal.Name = "InputOctal"
-		Me.InputOctal.Size = New System.Drawing.Size(343, 28)
+		Me.InputOctal.Size = New System.Drawing.Size(368, 28)
 		Me.InputOctal.TabIndex = 1
 		Me.InputOctal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
@@ -62,9 +62,9 @@ Partial Class Form1
 		Me.OkButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
 		Me.OkButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.OkButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.OkButton.Location = New System.Drawing.Point(175, 370)
+		Me.OkButton.Location = New System.Drawing.Point(178, 380)
 		Me.OkButton.Name = "OkButton"
-		Me.OkButton.Size = New System.Drawing.Size(284, 40)
+		Me.OkButton.Size = New System.Drawing.Size(309, 40)
 		Me.OkButton.TabIndex = 6
 		Me.OkButton.Text = "Convert"
 		Me.OkButton.UseVisualStyleBackColor = False
@@ -102,7 +102,7 @@ Partial Class Form1
 		Me.Explanation.Location = New System.Drawing.Point(13, 116)
 		Me.Explanation.Name = "Explanation"
 		Me.Explanation.ReadOnly = True
-		Me.Explanation.Size = New System.Drawing.Size(609, 248)
+		Me.Explanation.Size = New System.Drawing.Size(634, 258)
 		Me.Explanation.TabIndex = 11
 		Me.Explanation.TabStop = False
 		Me.Explanation.Text = ""
@@ -123,7 +123,7 @@ Partial Class Form1
 		Me.OutputDecimal.ReadOnly = True
 		Me.OutputDecimal.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
 		Me.OutputDecimal.ShowSelectionMargin = True
-		Me.OutputDecimal.Size = New System.Drawing.Size(343, 28)
+		Me.OutputDecimal.Size = New System.Drawing.Size(368, 28)
 		Me.OutputDecimal.TabIndex = 10
 		Me.OutputDecimal.TabStop = False
 		Me.OutputDecimal.Text = ""
@@ -137,7 +137,7 @@ Partial Class Form1
 		Me.ExitButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
 		Me.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.ExitButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.ExitButton.Location = New System.Drawing.Point(472, 370)
+		Me.ExitButton.Location = New System.Drawing.Point(497, 380)
 		Me.ExitButton.Name = "ExitButton"
 		Me.ExitButton.Size = New System.Drawing.Size(150, 40)
 		Me.ExitButton.TabIndex = 7
@@ -152,7 +152,7 @@ Partial Class Form1
 		Me.ResetButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
 		Me.ResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.ResetButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.ResetButton.Location = New System.Drawing.Point(13, 370)
+		Me.ResetButton.Location = New System.Drawing.Point(13, 380)
 		Me.ResetButton.Name = "ResetButton"
 		Me.ResetButton.Size = New System.Drawing.Size(150, 40)
 		Me.ResetButton.TabIndex = 5
@@ -167,7 +167,7 @@ Partial Class Form1
 		Me.FileInput.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
 		Me.FileInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.FileInput.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.FileInput.Location = New System.Drawing.Point(527, 12)
+		Me.FileInput.Location = New System.Drawing.Point(552, 12)
 		Me.FileInput.Name = "FileInput"
 		Me.FileInput.Size = New System.Drawing.Size(95, 28)
 		Me.FileInput.TabIndex = 2
@@ -182,7 +182,7 @@ Partial Class Form1
 		Me.FileOutput.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight
 		Me.FileOutput.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.FileOutput.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.FileOutput.Location = New System.Drawing.Point(527, 48)
+		Me.FileOutput.Location = New System.Drawing.Point(552, 48)
 		Me.FileOutput.Name = "FileOutput"
 		Me.FileOutput.Size = New System.Drawing.Size(95, 28)
 		Me.FileOutput.TabIndex = 3
@@ -214,7 +214,7 @@ Partial Class Form1
 		Me.Authors.AutoSize = True
 		Me.Authors.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.Authors.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Authors.Location = New System.Drawing.Point(163, 425)
+		Me.Authors.Location = New System.Drawing.Point(175, 425)
 		Me.Authors.Name = "Authors"
 		Me.Authors.Size = New System.Drawing.Size(458, 24)
 		Me.Authors.TabIndex = 12
@@ -227,7 +227,7 @@ Partial Class Form1
 		Me.AuthorHead.AutoSize = True
 		Me.AuthorHead.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.AuthorHead.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.AuthorHead.Location = New System.Drawing.Point(18, 425)
+		Me.AuthorHead.Location = New System.Drawing.Point(30, 425)
 		Me.AuthorHead.Name = "AuthorHead"
 		Me.AuthorHead.Size = New System.Drawing.Size(143, 25)
 		Me.AuthorHead.TabIndex = 13
@@ -243,7 +243,7 @@ Partial Class Form1
 		Me.ShowVisuals.Cursor = System.Windows.Forms.Cursors.Hand
 		Me.ShowVisuals.FlatStyle = System.Windows.Forms.FlatStyle.Flat
 		Me.ShowVisuals.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.ShowVisuals.Location = New System.Drawing.Point(439, 82)
+		Me.ShowVisuals.Location = New System.Drawing.Point(464, 82)
 		Me.ShowVisuals.Name = "ShowVisuals"
 		Me.ShowVisuals.Size = New System.Drawing.Size(183, 28)
 		Me.ShowVisuals.TabIndex = 4
@@ -255,7 +255,7 @@ Partial Class Form1
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-		Me.ClientSize = New System.Drawing.Size(634, 461)
+		Me.ClientSize = New System.Drawing.Size(659, 461)
 		Me.Controls.Add(Me.ShowVisuals)
 		Me.Controls.Add(Me.AuthorHead)
 		Me.Controls.Add(Me.Authors)
@@ -269,10 +269,9 @@ Partial Class Form1
 		Me.Controls.Add(Me.ExitButton)
 		Me.Controls.Add(Me.OkButton)
 		Me.Controls.Add(Me.InputOctal)
-		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
 		Me.HelpButton = True
 		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-		Me.MinimumSize = New System.Drawing.Size(650, 450)
+		Me.MinimumSize = New System.Drawing.Size(650, 500)
 		Me.Name = "Form1"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "Octal To Decimal Converter - Group 8"
@@ -289,7 +288,7 @@ Partial Class Form1
 		Dim s As String = InputOctal.Text
 
 		' Validate input
-		If (ValidateInput(s, "TextBox") = False) Then
+		If (ValidateInput(s) = False) Then
 			' User entered input in wrong format
 			OutputDecimal.Text = ""
 			Explanation.Rtf = ""
@@ -327,7 +326,6 @@ Partial Class Form1
 	Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		OutputDecimal.SelectionAlignment = HorizontalAlignment.Center
 		InputOctal.Select()
-
 	End Sub
 
 	Friend WithEvents ExitButton As Button
@@ -371,9 +369,20 @@ Partial Class Form1
 				End Using
 			End If
 			FileContents = FileContents.Trim()
-			If ValidateInput(FileContents, "File") = True Then
+			If ValidateInput(FileContents) = True Then
 				InputOctal.Text = FileContents
-				OkButton.PerformClick()
+
+				' Valid input entered by user .Now find res
+				' Split string into 2 parts .one containing digits before decimal and other containing digits after decimal
+				Dim Integral, Fractional, Result As String
+				Integral = ""
+				Fractional = ""
+				Result = ConvertDec(InputOctal.Text)
+				OutputDecimal.Text = Result
+				If ShowVisuals.Checked = True Then
+					Explanation.Rtf = GenerateExplanation(InputOctal.Text, Result)
+				End If
+				InputOctal.Select()
 			End If
 		Catch err As Exception
 			MessageBox.Show("Error reading File :" + err.ToString, "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -395,7 +404,7 @@ Partial Class Form1
 	Friend WithEvents AuthorHead As Label
 	Friend WithEvents ShowVisuals As CheckBox
 
-	Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVisuals.CheckedChanged
+	Private Sub ShowVisuals_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVisuals.CheckedChanged
 		If OutputDecimal.Text = "" Then
 			Return
 		End If
