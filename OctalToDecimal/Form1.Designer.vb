@@ -191,13 +191,13 @@ Partial Class Form1
 		' Valid input entered by user .Now find res
 		' Split string into 2 parts .one containing digits before decimal and other containing digits after decimal
 
-		InputOctal.Select()
 		Dim Integral, Fractional, Result As String
 		Integral = ""
 		Fractional = ""
 		Result = ConvertDec(InputOctal.Text)
 		OutputDecimal.Text = Result
 		Explanation.Rtf = GenerateExplanation(InputOctal.Text, Result)
+		InputOctal.Select()
 
 	End Sub
 
@@ -216,6 +216,8 @@ Partial Class Form1
 	Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Me.Location = New Point((Screen.PrimaryScreen.Bounds.Width - Me.Width) \ 2, (Screen.PrimaryScreen.Bounds.Height - Me.Height) \ 2)
 		OutputDecimal.SelectionAlignment = HorizontalAlignment.Center
+		InputOctal.Select()
+
 	End Sub
 
 	Friend WithEvents ExitButton As Button
@@ -225,6 +227,7 @@ Partial Class Form1
 		InputOctal.Text = ""
 		OutputDecimal.Text = ""
 		Explanation.Text = ""
+		InputOctal.Select()
 	End Sub
 
 	Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
