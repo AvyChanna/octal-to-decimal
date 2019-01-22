@@ -58,7 +58,7 @@
 
         If FoundDot = True Then
             s1 += "\cf0 .\cf2"
-            s2 += "\cf0 .\cf2"
+            s2 += "\cf0 .\cf3"
             For Each C As Char In Fractional
                 s1 += "\tab " + C
                 s2 += "\tab X"
@@ -86,6 +86,10 @@
             RtfTemp = RtfTemp + "\cf5 -1\cf0 ["
         End If
 
+        Dim AtleastOneMult As Boolean = False
+        Dim AtleastOneMultInIntegral As Boolean = False
+        Dim AtleastOneZero As Boolean = False
+
         ' Add blue + between two multiplications
         Dim FirstOut As Boolean = False
         For Each C As Char In Integral
@@ -95,7 +99,10 @@
             IntegralCounter = IntegralCounter - 1
             If Asc(C) = Asc("0") Then
                 RtfTemp = RtfTemp + "\cf6 (\strike 0 X 8\super\strike0 " + IntegralCounter.ToString + "\nosupersub )"
+                AtleastOneZero = True
             Else
+                AtleastOneMult = True
+                AtleastOneMultInIntegral = True
                 RtfTemp = RtfTemp + "\cf4 (" + C.ToString + " X 8\super " + IntegralCounter.ToString + "\nosupersub )"
             End If
             FirstOut = True
@@ -105,46 +112,26 @@
         For Each C As Char In Fractional
             If Asc(C) = Asc("0") Then
                 RtfTemp = RtfTemp + "\cf5  + \cf6 (\strike 0 X 8\super\strike0 -" + FractionalCounter.ToString + "\nosupersub )"
+                AtleastOneZero = True
             Else
+                AtleastOneMult = True
                 RtfTemp = RtfTemp + "\cf5  + \cf4 (" + C.ToString + " X 8\super -" + FractionalCounter.ToString + "\nosupersub )"
             End If
             FractionalCounter = FractionalCounter + 1
         Next
+
         If NegativeNumber = True Then
             RtfTemp = RtfTemp + "\cf0 ]"
         End If
-        RtfTemp = RtfTemp + "\par"
+
+        RtfTemp += "\par"
+
         ' Line 5(smart-add)
         ' This line gets printed only if there is atleast one multiplication and atleast one strikeout
         ' Below 2 FOR loops determine if this line must be printed
         ' AtleastOneMult sees that there is atleast one non-zero character to print, otherwise result is directly zero
         ' AtlaestOneZero sees that there is atleast one zero, otherwise we do not need any simplification
-        Dim AtleastOneMult As Boolean = False
-        Dim AtleastOneMultInIntegral As Boolean = False
-        Dim AtleastOneZero As Boolean = False
-        ' Process Integral Part
-        For Each C As Char In Integral
-            If Asc(C) <> Asc("0") Then
-                AtleastOneMultInIntegral = True
-            Else
-                AtleastOneZero = True
-            End If
-            If AtleastOneMultInIntegral = True AndAlso AtleastOneZero = True Then
-                Exit For
-            End If
-        Next
-        AtleastOneMult = AtleastOneMultInIntegral
-        ' Process fractional part
-        For Each C As Char In Fractional
-            If Asc(C) <> Asc("0") Then
-                AtleastOneMult = True
-            Else
-                AtleastOneZero = True
-            End If
-            If AtleastOneMult = True AndAlso AtleastOneZero = True Then
-                Exit For
-            End If
-        Next
+
         ' NegativeNumber adds support for negative numbers
         If AtleastOneMult = True AndAlso AtleastOneZero = True Then
             RtfTemp = RtfTemp + "\cf1  = "
@@ -167,6 +154,7 @@
                     End If
                 End If
             Next
+
             FractionalCounter = 1
             ' Print fractional part
             For Each C As Char In Fractional
@@ -187,6 +175,7 @@
             End If
             RtfTemp = RtfTemp + "\par"
         End If
+
         ' Line 6 and/or 7(result)
         If NegativeNumber = True Then
             RtfTemp = RtfTemp + "\cf1  = \cf5 -1\cf0 [\cf4 " + Result.TrimStart(New Char() {"-"c}) + "\cf0 ]\par"
