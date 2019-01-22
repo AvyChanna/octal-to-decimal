@@ -26,7 +26,7 @@
 			ElseIf Asc(c) = Asc(".") AndAlso HasDot = False Then
 				HasDot = True
 			Else
-				MessageBox.Show("Invalid/Disallowed Character!", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+				MessageBox.Show("Invalid/Disallowed Character!" + " """ + c.ToString + """", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
 				Return False
 			End If
 			NotFirst = True

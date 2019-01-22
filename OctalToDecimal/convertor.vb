@@ -27,15 +27,13 @@
 		End If
 		'*********************************initialisations*********************************************
 
-		Dim ResBefDec, Multiplicant, Remainder As System.Numerics.BigInteger
+		Dim ResBefDec, Multiplicant As System.Numerics.BigInteger
 		Dim ResAftDec As String = "0"
-		Dim Carry As Integer = 0
 		Dim Count As Integer = 0
 
 		Multiplicant = 1
 		ResBefDec = 0
 		ResAftDec = "0"
-		Remainder = 0
 
 		'*****************************conversion before decimal*****************************************
 
