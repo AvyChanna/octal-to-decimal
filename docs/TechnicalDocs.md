@@ -16,8 +16,8 @@ This project is mainly composed of 3 components:-
 
 The essence of the algorithmused is as follows-
 
-For an octal number $A_{n}...A_{2}A_{1}A_{0}\space.\space A_{-1}A_{-2}....A_{-m}$ , its decimal equivalent is $(((A_n*8 + A_{n-1})*8 + ....)*8 +A_1)*8 +A_0)\space.\space (((A_{-m} + A_{-(m-1)}/8) + ... + A_{-2}/8) + A_1)/8$
-The same can be seen in module *Convert.vb*. **There is no limitation to length of number before/after the decimal.**
+For an octal number A<sub>n</sub>...A<sub>2</sub>A<sub>1</sub>A<sub>0.</sub>A<sub>-1</sub>A<sub>-2</sub>....A<sub>-m</sub> , its decimal equivalent is  A<sub>n</sub>*8<sup>n</sup>+....+A<sub>2</sub>*8<sup>2</sup>+A<sub>1</sub>*8<sup>1</sup>+A<sub>0</sub>*8<sup>0</sup>.A<sub>-1</sub>*8<sup>-1</sup>+A<sub>-2</sub>*8<sup>-2</sup>+....+A<sub>-m</sub>*8<sup>-m</sup>
+The same can be seen in module *Convert.vb*. **The limit of length of number input is 32767 digits inclusive of decimal point.**
 
 ### Visualization
 
