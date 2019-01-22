@@ -39,64 +39,47 @@
 		Next
 		If Integral = "" Then
 			Integral = "0"
-		End If
+        End If
+
 		' Start RTF string. Subsequently, strings will append to it one-by-one 
-		Dim RtfTemp As String = "{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Courier New;}}{\colortbl ;\red155\green0\blue211;\red128\green64\blue0;\red255\green0\blue128;\red0\green64\blue0;\red0\green77\blue187;\red255\green0\blue0;\red191\green168\blue0;}\viewkind4\uc1\pard\sl240\slmult1\cf1\f0\fs20\lang9\line\tab "
+        Dim RtfTemp As String = "{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Courier New;}}{\colortbl ;\red155\green0\blue211;\red128\green64\blue0;\red255\green0\blue128;\red0\green64\blue0;\red0\green77\blue187;\red255\green0\blue0;\red191\green168\blue0;}\viewkind4\uc1\pard\sl240\slmult1\cf1\f0\fs20\lang9\line\tab"
 		Dim IntegralCounter As Integer = Len(Integral)
+        Dim s1, s2 As String
+        s1 = ""
+        s2 = ""
 
-
-		' Line 1(number)
+        ' Line 1(number) ,Line 2(cross)
 		Dim Counter As Integer = 1
 		For Each C As Char In Integral
-			RtfTemp = RtfTemp + C
-			If Counter <> Len(Integral) Then
-				RtfTemp = RtfTemp + "\tab "
-			End If
-			Counter = Counter + 1
+            s1 += " " + C + "\tab"
+            s2 += " X" + "\tab"
 		Next
 
 		If FoundDot = True Then
-			RtfTemp = RtfTemp + "\tab\cf0 .\cf2"
+            s1 += "\cf0 .\cf2"
+            s2 += "\cf0 .\cf2"
 			For Each C As Char In Fractional
-				RtfTemp = RtfTemp + "\tab " + C
+                s1 += "\tab " + C
+                s2 += "\tab X"
 			Next
-		End If
-		RtfTemp = RtfTemp + "\par\cf3\tab "
-		' Line 2(XXX)
-		Counter = 1
-		For Each C As Char In Integral
-			RtfTemp = RtfTemp + "X"
-			If Counter <> Len(Integral) Then
-				RtfTemp = RtfTemp + "\tab "
-			End If
-			Counter = Counter + 1
-		Next
+        End If
 
-		If FoundDot = True Then
-			RtfTemp = RtfTemp + "\tab\cf0 .\cf3"
-			For Each C As Char In Fractional
-				RtfTemp = RtfTemp + "\tab X"
-			Next
-		End If
-		RtfTemp = RtfTemp + "\par\cf2\tab "
+        RtfTemp = RtfTemp + s1 + "\par\cf3\tab" + s2 + "\par\cf2\tab"
+
 		' Line 3(8-power)
-		Counter = 1
-		For C As Integer = 0 To IntegralCounter - 1
-			Dim D As Integer = IntegralCounter - 1 - C
-			RtfTemp = RtfTemp + "8\super " + D.ToString + "\nosupersub"
-			If Counter <> Len(Integral) Then
-				RtfTemp = RtfTemp + "\tab "
-			End If
-			Counter = Counter + 1
-		Next
+        For C As Integer = IntegralCounter - 1 To 0 Step -1
+            RtfTemp = RtfTemp + " 8\super " + C.ToString + "\nosupersub\tab"
+        Next
 
 		If FoundDot = True Then
-			RtfTemp = RtfTemp + "\tab\cf0 .\cf1"
+            RtfTemp = RtfTemp + "\cf0 .\cf1"
 			For C As Integer = 1 To Len(Fractional)
 				RtfTemp = RtfTemp + "\tab 8\super -" + C.ToString + "\nosupersub"
 			Next
-		End If
-		RtfTemp = RtfTemp + "\par\par\pard\sa200\sl240\slmult1\cf7  = "
+        End If
+
+        RtfTemp = RtfTemp + "\par\par\pard\sa200\sl240\slmult1\cf7  = "
+
 		' Line 4 (brute-force-multiply)
 		If Result.StartsWith("-") Then
 			RtfTemp = RtfTemp + "\cf5 -1\cf0 ["
